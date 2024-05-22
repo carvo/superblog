@@ -4,7 +4,7 @@ export const Query = {
     findUsers: (parent, args, context) => context.userRepository.findUsers(args.input.firstnamePart, args.input.emailPart),
 
     blogs: (parent, args, context) => context.blogRepository.findAll(),
-    blogById: (parent, args, context) => context.blogDataloader.load(args.id),
+    blogById: (parent, args, context) => context.blogRepository.findById(args.id),
 
     comments: (parent, args, context) => context.commentRepository.findAll()
 }
