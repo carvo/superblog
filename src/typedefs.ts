@@ -12,7 +12,6 @@ export const typeDefs = `
   }
 
   input FindUserFilter {
-    id: ID
     firstnamePart: String
     emailPart: String
   }
