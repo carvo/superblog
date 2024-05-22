@@ -1,3 +1,3 @@
 export const Blog = {
-    comments: (parent, args, context) => context.commentRepository.findByBlogId(parent.id)
+    comments: (parent, args, context) => context.dataloader.findByBlogId(parent.id)
 }

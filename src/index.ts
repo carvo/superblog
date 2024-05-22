@@ -5,6 +5,7 @@ import { typeDefs } from "./typedefs.js";
 import { BlogRepository } from "./repositories/blog.repository.js";
 import { UserRepository } from "./repositories/user.repository.js";
 import { CommentRepository } from "./repositories/comment.repository.js";
+import { BlogDataloader } from "./dataloaders/blog.dataloader.js";
 
 
 const server = new ApolloServer({
@@ -15,11 +16,13 @@ const server = new ApolloServer({
 const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
     context: async ({ req }) => {
+        const blogRepo = new BlogRepository()
 		return {
 			userRepository: new UserRepository(),
-			blogRepository: new BlogRepository(),
-            commentRepository: new CommentRepository()
-		};
+			blogRepository: blogRepo,
+            commentRepository: new CommentRepository(),
+            blogDataloader: new BlogDataloader(blogRepo)
+		}
 	},
 });
 

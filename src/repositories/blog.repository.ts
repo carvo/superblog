@@ -13,7 +13,13 @@ export class BlogRepository {
     }
 
     findById(id: number): Blog {
+        console.log("[findById] Retrieving blog")
         return BlogRepository.blogs.find(it => it.id == id)
+    }
+
+    findAllByIds(ids: readonly number[]) {
+        console.log("[findAllByIds] Retrieving blogs")
+        return BlogRepository.blogs.filter(it => ids.includes(it.id))
     }
 
     findByUserId(userId: number): Blog[] {

@@ -6,7 +6,7 @@ export const typeDefs = `
     findUsers(input: FindUserFilter): [User!]
 
     blogs: [Blog!]
-    blogById(id: Int): Blog
+    blogById(id: ID!): Blog
 
     comments: [Comment!]
   }
