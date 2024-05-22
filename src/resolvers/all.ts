@@ -1,24 +1,14 @@
+import { Blog } from "./blog.resolver.js";
+import { Comment } from "./comment.resolver.js";
+import { UserStatus } from "./enum.resolver.js";
+import { Query } from "./query.resolver.js";
+import { User } from "./user.resolver.js";
 
 
 export const resolvers = {
-    Query: {
-        firstUser: (parent, args, context) => context.userRepository.findAll()[0],
-        users: (parent, args, context) => context.userRepository.findAll(),
-        findUsers: (parent, args, context) => context.userRepository.findUsers(args.input.firstnamePart, args.input.emailPart),
-
-        blogs: (parent, args, context) => context.blogRepository.findAll(),
-        blogById: (parent, args, context) => context.blogRepository.findById(args.id),
-
-        comments: (parent, args, context) => context.commentRepository.findAll()
-    },
-    User: {
-        blogs: (parent, args, context) => context.blogRepository.findByUserId(parent.id)
-    },
-    Blog: {
-        comments: (parent, args, context) => context.commentRepository.findByBlogId(parent.id)
-    },
-    Comment: {
-        blog: (parent, args, context) => context.blogRepository.findById(parent.blogId),
-        commentator: (parent, args, context) => context.userRepository.findById(parent.commentatorId)
-    }
+    Query,
+    User,
+    Blog,
+    Comment,
+    UserStatus
 };

@@ -1,7 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { describe, expect, test } from '@jest/globals';
 import { typeDefs } from '../src/typedefs';
-import { resolvers } from '../src/resolvers/all';
+import { resolvers } from '../dist/src/resolvers/all';
 import assert from 'assert';
 import { UserRepository } from '../src/repositories/user.repository';
 import { User } from '../src/entities/user.entity';

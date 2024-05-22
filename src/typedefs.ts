@@ -21,7 +21,15 @@ export const typeDefs = `
     firstname: String!
     email: String
     yearOfBirth: Int
+    status: UserStatus!
     blogs: [Blog]
+  }
+
+  enum UserStatus {
+    REGISTERED
+    ACTIVE
+    DISABLED
+    EXPIRED
   }
 
   type Blog {
